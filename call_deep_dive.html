@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00c75a",
+                        "background-light": "#f5f8f7",
+                        "background-dark": "#0f2318",
+                        "forest": "#013220",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Call Deep Dive - Sales Analysis</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-forest flex flex-col h-full text-white/90">
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-forest font-bold">query_stats</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight">Sales Platform</h1>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary text-forest" href="#">
+<span class="material-symbols-outlined font-variation-fill">call</span>
+<span class="text-sm font-bold">Calls</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Team</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-white/10 space-y-4">
+<button class="w-full bg-primary text-forest py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+                    Upgrade Pro
+                </button>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Header -->
+<header class="h-20 bg-white dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 shrink-0">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
+<a class="hover:text-primary" href="#">Back to Calls</a>
+<span>/</span>
+<span class="text-slate-900 dark:text-slate-100">Call #12940</span>
+</div>
+<div class="flex items-center gap-3 mt-1">
+<h2 class="text-xl font-bold">Call Deep Dive</h2>
+<span class="text-sm text-slate-400 font-normal">Oct 24, 2023 - 10:30 AM | Sales Rep: <span class="text-primary font-medium">John Doe</span></span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-[20px]">share</span>
+                        Share Analysis
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-forest rounded-lg text-sm font-bold">
+<span class="material-symbols-outlined text-[20px]">download</span>
+                        Export
+                    </button>
+</div>
+</header>
+<div class="flex-1 flex overflow-hidden p-6 gap-6">
+<!-- Center: Audio & Transcript -->
+<div class="flex-1 flex flex-col gap-6 overflow-hidden">
+<!-- Audio Player Card -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<button class="size-12 rounded-full bg-primary flex items-center justify-center text-forest shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[32px] font-variation-fill">play_arrow</span>
+</button>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Sarah Chen Intro</span>
+<span class="text-xs text-slate-500">01:12 / 04:35</span>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+<button class="px-3 py-1 text-xs font-bold rounded bg-white dark:bg-slate-700 shadow-sm">1x</button>
+<button class="px-3 py-1 text-xs font-medium text-slate-500 hover:text-primary">1.5x</button>
+<button class="px-3 py-1 text-xs font-medium text-slate-500 hover:text-primary">2x</button>
+</div>
+</div>
+<div class="relative h-16 w-full flex items-center gap-0.5">
+<!-- Simple SVG Waveform Placeholder -->
+<div class="flex-1 h-full flex items-center gap-[2px]">
+<div class="h-4 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-6 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-8 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-12 w-1 bg-primary rounded-full"></div>
+<div class="h-10 w-1 bg-primary rounded-full"></div>
+<div class="h-8 w-1 bg-primary rounded-full"></div>
+<div class="h-14 w-1 bg-primary rounded-full"></div>
+<div class="h-6 w-1 bg-primary rounded-full"></div>
+<div class="h-10 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-4 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-8 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-10 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-6 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-14 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-10 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-8 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-12 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-4 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-6 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-10 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-4 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-6 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-12 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-8 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-10 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-14 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-4 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-8 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-6 w-1 bg-primary/30 rounded-full"></div>
+<div class="h-10 w-1 bg-primary/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Transcript Window -->
+<div class="flex-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<h3 class="font-bold text-sm">Transcript</h3>
+<div class="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+<button class="px-4 py-1.5 text-xs font-bold rounded-md bg-white dark:bg-slate-700 shadow-sm">Original Audio</button>
+<button class="px-4 py-1.5 text-xs font-medium text-slate-500 hover:text-primary">AI Translation</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Message Bubble John -->
+<div class="flex gap-4">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center shrink-0">
+<span class="text-xs font-bold">JD</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold">John Doe</span>
+<span class="text-[10px] text-slate-400">10:31 AM</span>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                        Hi Sarah, thanks for hopping on today. I wanted to follow up on our last conversation regarding the <span class="bg-primary/20 border-b border-primary px-1">enterprise licensing model</span> we discussed.
+                                    </p>
+</div>
+</div>
+<!-- Message Bubble Sarah -->
+<div class="flex gap-4">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+<span class="text-xs font-bold text-forest">SC</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold">Sarah Chen</span>
+<span class="text-[10px] text-slate-400">10:32 AM</span>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                        Absolutely, John. We reviewed the numbers internally and we're definitely interested. We are specifically looking for <span class="bg-primary/20 border-b border-primary px-1 font-medium">automated compliance reporting</span> to be included in the tier.
+                                    </p>
+</div>
+</div>
+<!-- Message Bubble John -->
+<div class="flex gap-4">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center shrink-0">
+<span class="text-xs font-bold">JD</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold">John Doe</span>
+<span class="text-[10px] text-slate-400">10:33 AM</span>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                        That's standard in our Enterprise Plus plan. I can send over the <span class="bg-primary/20 border-b border-primary px-1 font-medium">updated pricing deck</span> this afternoon to reflect those specific requirements.
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar: AI Extraction -->
+<aside class="w-80 flex flex-col gap-6 overflow-y-auto pr-2">
+<!-- Conversion Probability -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm">
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-6">Conversion Probability</h3>
+<div class="flex flex-col items-center">
+<div class="relative size-32 flex items-center justify-center">
+<!-- Background circle -->
+<svg class="size-full -rotate-90">
+<circle class="text-slate-100 dark:text-slate-800" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<!-- Progress circle -->
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="54.6" stroke-width="8"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="text-3xl font-black">85%</span>
+<span class="text-[10px] font-bold text-primary">HIGH</span>
+</div>
+</div>
+<p class="text-center text-xs text-slate-500 mt-4 leading-relaxed">Sarah showed high intent during the feature discussion phase.</p>
+</div>
+</div>
+<!-- AI Summary -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">AI Summary</h3>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Sarah Chen (Decision Maker) expressed strong interest in the Enterprise Plus tier, specifically for automated compliance features. The discussion moved from initial discovery to specific technical requirements. John successfully positioned the value proposition, leading to a request for pricing.
+                        </p>
+</div>
+<!-- Action Items -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm flex-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-[20px]">task_alt</span>
+<h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Action Items</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<div class="mt-0.5 size-5 border-2 border-primary rounded flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+</div>
+<span class="text-sm text-slate-700 dark:text-slate-200 font-medium">Send updated pricing deck</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-0.5 size-5 border-2 border-slate-300 dark:border-slate-600 rounded shrink-0"></div>
+<span class="text-sm text-slate-700 dark:text-slate-200 font-medium">Schedule technical demo for compliance team</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-0.5 size-5 border-2 border-slate-300 dark:border-slate-600 rounded shrink-0"></div>
+<span class="text-sm text-slate-700 dark:text-slate-200 font-medium">Share case study on compliance automation</span>
+</li>
+<li class="flex items-start gap-3 opacity-50">
+<div class="mt-0.5 size-5 border-2 border-primary bg-primary rounded flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px] text-forest font-bold">check</span>
+</div>
+<span class="text-sm text-slate-700 dark:text-slate-200 font-medium line-through">Confirm meeting attendees</span>
+</li>
+</ul>
+</div>
+</aside>
+</div>
+</main>
+</div>
+</body></html>

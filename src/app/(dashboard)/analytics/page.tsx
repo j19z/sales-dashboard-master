@@ -254,7 +254,7 @@ export default function AnalyticsPage() {
                 <Tooltip 
                   contentStyle={{ backgroundColor: '#0f2318', borderColor: '#052e16', borderRadius: '8px', color: '#fff' }}
                   itemStyle={{ color: '#fff' }}
-                  formatter={(value: number) => [`${value}%`, 'Share']}
+                  formatter={(value: any) => [`${value}%`, 'Share']}
                 />
               </PieChart>
             </ResponsiveContainer>
